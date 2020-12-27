@@ -1,5 +1,6 @@
 from tkinter import *
 import info
+import names
 root = Tk()
 
 
@@ -71,6 +72,41 @@ chapterEnemiesLab=Label(root, text = 'Chapter Enemies')
 chapterEnemiesTXT=Text (root, height = 5, width = 30, wrap = WORD)
 
 generateBTN=Button(root, text ='Create Chapter', command = lambda: generate_chapter())
+
+
+
+chapterNameLab=Label(root, text = 'Possible names:')
+chapterName1=Entry(root, width = 35)
+chapterName2=Entry(root, width = 35)
+chapterName3=Entry(root, width = 35)
+chapterName4=Entry(root, width = 35)
+chapterName5=Entry(root, width = 35)
+chapterName6=Entry(root, width = 35)
+
+generateNameBTN=Button(root, text ='Generate Names', command = lambda: create_names())
+
+def create_names():
+    name1 = names.create_name(info.Chapter.progenitor)
+    name2 = names.create_name(info.Chapter.progenitor)
+    name3 = names.create_name(info.Chapter.progenitor)
+    name4 = names.create_name(info.Chapter.progenitor)
+    name5 = names.create_name(info.Chapter.progenitor)
+    name6 = names.create_name(info.Chapter.progenitor)
+    chapterName1.delete(0, END)
+    chapterName2.delete(0, END)
+    chapterName3.delete(0, END)
+    chapterName4.delete(0, END)
+    chapterName5.delete(0, END)
+    chapterName6.delete(0, END)
+    chapterName1.insert(0,name1)
+    chapterName2.insert(0,name2)
+    chapterName3.insert(0,name3)
+    chapterName4.insert(0,name4)
+    chapterName5.insert(0,name5)
+    chapterName6.insert(0,name6)
+    
+    
+
 
 def generate_chapter():
     ReasonofFoundingTXT.delete(0, END)
@@ -233,9 +269,16 @@ chapterFriendsTXT.grid(row=11,column=2)
 
 chapterEnemiesLab.grid(row=12,column=2)
 chapterEnemiesTXT.grid(row=13,column=2)
-##
 
-#greaterLuckBTN=Button(root, text ='Use Greater Luck', state = 'disable', command = lambda: use_greater_luck())
+
+chapterNameLab.grid(row=0,column=3)
+chapterName1.grid(row=1,column=3)
+chapterName2.grid(row=2,column=3)
+chapterName3.grid(row=3,column=3)
+chapterName4.grid(row=4,column=3)
+chapterName5.grid(row=5,column=3)
+chapterName6.grid(row=6,column=3)
+generateNameBTN.grid(row=7,column=3)
 
 
 
